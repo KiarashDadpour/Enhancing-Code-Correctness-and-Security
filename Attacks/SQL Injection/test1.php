@@ -1,4 +1,6 @@
-
+<?php
+// vulnerable_login.php
+// هدف آموزشي: نشان دادن SQL Injection در يک فرم لاگين ساده (محتواي آموزشي — در عمل ممنوع)
 $host = "localhost";
 $user = "webapp_user";       // فرضاً حساب با دسترسی نامناسب (ممکن است بیشتر از نیاز حق داشته باشد)
 $pass = "webapp_password";
