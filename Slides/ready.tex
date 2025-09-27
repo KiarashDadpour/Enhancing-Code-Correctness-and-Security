@@ -1,0 +1,118 @@
+\documentclass[t,ignorenonframetext]{beamer}
+\usepackage{beamerinnerthemecircles}
+\mode<presentation>
+{
+\usetheme{Warsaw}
+\usecolortheme{whale}
+\setbeamercolor{frametitle}{fg=black,bg=lightgray}
+\usefonttheme{structurebold}
+}
+
+\title[Security & AI Overview]{Enhancing Code Correctness and Security with Large Language Models}
+\author[University of Guilan]{Dr. Reza Ebrahimi Atani \\ Dr. Amir Tabatabaei \\ Asal Mahmodi Nezhad \\ Kiarash Dadpour}
+\date{Fall, 2025}
+
+\begin{document}
+
+\frame{
+\maketitle
+}
+
+\section{Introduction}
+\begin{frame}{Introduction: Computer Security and AI Overview}
+\begin{itemize}
+\item The growing importance of computer security in the digital era.
+\item Advances in artificial intelligence (AI) are transforming technology and security.
+\item Understanding theoretical foundations is key for research and application.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction: Basic Concepts}
+\begin{itemize}
+\item Computer Security: protecting systems from unauthorized access and attacks.
+\item Network Security: securing communication protocols and data movement.
+\item Artificial Intelligence: enabling machines to simulate human-like intelligence.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction: Importance in Academia and Industry}
+\begin{itemize}
+\item Universities focus on foundational theory and applied security research.
+\item Industries utilize AI and security protocols to protect data assets.
+\item Bridging theory and practice is essential for innovation in both fields.
+\end{itemize}
+\end{frame}
+
+\section{Large Language Models (LLM)}
+\begin{frame}{Large Language Models: Definition and Purpose}
+\begin{itemize}
+\item LLMs are AI models trained on vast amounts of text data.
+\item Purpose: to understand and generate human-like language.
+\item Examples: GPT, BERT, and other transformer-based architectures.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Large Language Models: Architecture}
+\begin{itemize}
+\item Based on Transformer models featuring self-attention mechanisms.
+\item Layers of multi-head attention and feed-forward networks.
+\item Trained using unsupervised or semi-supervised learning on massive text corpora.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Large Language Models: Applications and Challenges}
+\begin{itemize}
+\item Applications: natural language processing, code generation, chatbots.
+\item Security concerns: data privacy, adversarial attacks, bias in models.
+\item Continual research to improve robustness and ethical use of LLMs.
+\end{itemize}
+\end{frame}
+
+\section{Attacks}
+\begin{frame}{SQL Injection: What Is It?}
+\begin{itemize}
+\item SQL Injection is a code injection technique targeting databases.
+\item Attackers exploit vulnerabilities in user input to manipulate SQL queries.
+\item One of the most common and dangerous web security vulnerabilities.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{SQL Injection: How It Works}
+\begin{itemize}
+\item User input is improperly sanitized before being embedded in SQL queries.
+\item Attackers insert malicious SQL commands to read, modify, or delete data.
+\item Example: input like \texttt{' OR 1=1 --} can bypass authentication.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{SQL Injection: Prevention Techniques}
+\begin{itemize}
+\item Use parameterized queries (prepared statements) to separate code from data.
+\item Employ stored procedures and input validation.
+\item Apply the principle of least privilege on database accounts.
+\item Regular security testing and updates to codebase.
+\end{itemize}
+\end{frame}
+
+\section{References}
+\begin{frame}{References}
+\tiny
+\begin{itemize}
+\item O. Iyama, K. Kato, J. Miyachi, \textit{Derived categories of $N$-complexes}, 2017.
+\item A. Neeman, \textit{The homotopy category of flat modules and Grothendieck duality}, 2008.
+\item OWASP Foundation, \textit{SQL Injection Prevention Cheat Sheet}.
+\item Vaswani et al., \textit{Attention is All You Need}, 2017.
+\item Radford et al., \textit{Language Models are Few-Shot Learners}, OpenAI, 2020.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\vspace{3cm}
+\begin{center}
+\begin{LARGE}
+\textcolor{blue}{\textbf{Thank you all for your attention}}
+\end{LARGE}
+\end{center}
+\end{frame}
+
+\end{document}
