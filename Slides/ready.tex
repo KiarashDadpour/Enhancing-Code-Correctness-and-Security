@@ -2,14 +2,14 @@
 \usepackage{beamerinnerthemecircles}
 \mode<presentation>
 {
-\usetheme{Warsaw} 
+\usetheme{Warsaw}
 \usecolortheme{whale}
 \setbeamercolor{frametitle}{fg=black,bg=lightgray}
 \usefonttheme{structurebold}
 }
 
 \title[Security & AI Overview]{Enhancing Code Correctness and Security with Large Language Models}
-\author[University of Guilan]{Dr. Reza Ebrahimi Atani \\ Dr. Amir Tabatabaei \\ Asal Mahmodi Nezhad \\ Kiarash Dadpour}
+\author[University of Guilan]{Dr. Reza Ebrahimi Atani \newline Dr. Amir Tabatabaei \newline Asal Mahmodi Nezhad \newline Kiarash Dadpour}
 \date{Fall, 2025}
 
 \begin{document}
@@ -69,12 +69,24 @@
 \end{frame}
 
 \section{Attacks}
-\begin{frame}{SQL Injection: What Is It?}
-\begin{itemize}
-\item SQL Injection is a code injection technique targeting databases.
-\item Attackers exploit vulnerabilities in user input to manipulate SQL queries.
-\item One of the most common and dangerous web security vulnerabilities.
-\end{itemize}
+\begin{frame}[fragile]{SQL Injection}
+
+\begin{columns}[T] % T برای تراز بالای ستون‌ها
+    \begin{column}{0.48\linewidth} % ستون سمت چپ
+        \includegraphics[width=\linewidth]{3.1.png}
+    \end{column}
+    
+    \begin{column}{0.48\linewidth} % ستون سمت راست
+        \texttt{%
+        \textcolor{red}{SELECT} * \\
+        \textcolor{red}{FROM} users \\
+        \textcolor{red}{WHERE} username = 'admin' \\
+        \textcolor{red}{OR} '1'='1' \\
+        \textcolor{red}{AND} password = 'anything'
+        }
+    \end{column}
+\end{columns}
+
 \end{frame}
 
 \begin{frame}{SQL Injection: How It Works}
