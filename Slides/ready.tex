@@ -1,5 +1,6 @@
 \documentclass[t,ignorenonframetext]{beamer}
 \usepackage{beamerinnerthemecircles}
+\usepackage{tcolorbox}
 \mode<presentation>
 {
 \usetheme{Warsaw}
@@ -69,6 +70,21 @@
 \end{frame}
 
 \section{Attacks}
+\begin{frame}{SQL Injection}
+\textbf{Abstract}
+
+\end{frame}
+
+\begin{frame}{SQL Injection}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\linewidth]{3.4.png}
+\end{figure}
+
+\end{frame}
+
+
+
 \begin{frame}[fragile]{SQL Injection}
 
 \begin{columns}[T] % T برای تراز بالای ستون‌ها
@@ -78,6 +94,9 @@
     
     \begin{column}{0.48\linewidth} % ستون سمت راست
         \texttt{%
+        \newline
+        \newline
+        \newline
         \textcolor{red}{SELECT} * \\
         \textcolor{red}{FROM} users \\
         \textcolor{red}{WHERE} username = 'admin' \\
@@ -89,21 +108,70 @@
 
 \end{frame}
 
-\begin{frame}{SQL Injection: How It Works}
-\begin{itemize}
-\item User input is improperly sanitized before being embedded in SQL queries.
-\item Attackers insert malicious SQL commands to read, modify, or delete data.
-\item Example: input like \texttt{' OR 1=1 --} can bypass authentication.
-\end{itemize}
+
+\begin{frame}[fragile]{SQL Injection}
+
+\begin{columns}[T] % T برای تراز بالای ستون‌ها
+    \begin{column}{0.48\linewidth} % ستون سمت چپ
+        \includegraphics[width=\linewidth]{3.3.png}
+    \end{column}
+    
+    \begin{column}{0.48\linewidth} % ستون سمت راست
+        \texttt{%
+        \newline
+        \newline
+        \newline
+        \textcolor{red}{SELECT} * \\
+        \textcolor{red}{FROM} users \\
+        \textcolor{red}{WHERE} username = 'admin'; \\
+        \textcolor{red}{DROP TABLE} users; \\
+        \textcolor{red}{AND} password = 'anything'
+        }
+    \end{column}
+\end{columns}
+
 \end{frame}
 
-\begin{frame}{SQL Injection: Prevention Techniques}
+\begin{frame}{Prompt: Persona}
+\begin{tcolorbox}
+You are a senior application security engineer and database expert with hands-on experience finding, explaining, and remediating SQL Injection vulnerabilities across multiple languages and frameworks (PHP, Java, C#, Python, Node.js, Go, Ruby, etc.). Your tone is technical, precise and pragmatic. You reference OWASP best practices where relevant and always prefer safe, defensive guidance over exploit details.\
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Prompt: Context}
+\begin{tcolorbox}
+You will be given one or more source files that interact with a database. The goal: determine whether SQL Injection exists, explain why (with exact code locations), provide a secure, runnable fix in the same language/framework, and produce tests that verify the fix. Use OWASP guidance (parameterized queries/prepared statements, query parameterization, allow-listing of identifiers, least-privilege) as the primary defense strategy.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Prompt: Tasks}
+\begin{enumerate}
+\item Analyze the code and identify any SQL Injection vulnerabilities. If none, explain why the code is safe.
+\item For each vulnerability found:
+\begin{itemize}
+\item Provide exact file/line references and an evidence snippet (<= 8 lines).
+\item Explain the technical root cause (e.g., dynamic string concatenation, unsafe ORM usage).
+\item Assign severity (LOW/MEDIUM/HIGH) with justification.
+\item Deliver a secure, complete code fix in the same language (prefer parameterized queries / prepared statements).
+\item If identifiers are dynamic, show a secure allow-listing/mapping approach.
+\end{itemize}
+\item Produce unit/integration tests that assert the fix prevents SQL injection (use DB mocks or in-memory DBs).
+\item Provide remediation plan, monitoring suggestions, and follow-up security checks (SAST, DAST, DB privileges review).
+\item NEVER output exploit payloads or instructions to exploit the vulnerability.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Result}
 \begin{itemize}
 \item Use parameterized queries (prepared statements) to separate code from data.
 \item Employ stored procedures and input validation.
 \item Apply the principle of least privilege on database accounts.
 \item Regular security testing and updates to codebase.
 \end{itemize}
+\end{frame}
+
+\begin{frame}{XSS}
+\textbf{Abstract}
 \end{frame}
 
 \section{References}
