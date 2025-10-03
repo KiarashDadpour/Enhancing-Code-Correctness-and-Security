@@ -29,4 +29,17 @@ if (u.failed_count >= MAX_FAILED_ATTEMPTS) {
       </pre>
     </td>
   </tr>
+  <tr>
+    <td>
+      <pre>
+struct SessionData {
+    char username[56];
+    char ip_address[32];
+    time_t login_time;
+};  
+strncpy(data.username, username.c_str(), sizeof(data.username));
+strncpy(data.ip_address, ip.c_str(), sizeof(data.ip_address));
+      </pre>
+    </td>
+  </tr>
 </table>
