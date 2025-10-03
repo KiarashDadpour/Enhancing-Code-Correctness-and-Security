@@ -1,7 +1,7 @@
 | code |
 |------|
-|auto hash = Crypto::pbkdf2(password, salt, iter);|
-| bool const_time_equal(const std::vector<unsigned char>& a, const std::vector<unsigned char>& b);  |
+|auto hash = Crypto::pbkdf2(password, salt, iter);                                |
+| bool const_time_equal(const std::vector<unsigned char>& a, const std::vector<unsigned char>& b);            |
 | 
 std::string token = random_hex(24);
 token_to_user[token] = username;
