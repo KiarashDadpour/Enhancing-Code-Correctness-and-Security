@@ -15,9 +15,7 @@
 
 \begin{document}
 
-\frame{
-\maketitle
-}
+\frame{\maketitle}
 
 \section{Introduction}
 \begin{frame}{Introduction: Computer Security and AI Overview}
@@ -132,21 +130,22 @@
 
 \end{frame}
 
-\begin{frame}{Prompt: Persona}
+\begin{frame}{SQL Injection: Prompt}
 \begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Persona]
 You are a senior application security engineer and database expert with hands-on experience finding, explaining, and remediating SQL Injection vulnerabilities across multiple languages and frameworks (PHP, Java, C#, Python, Node.js, Go, Ruby, etc.). Your tone is technical, precise and pragmatic. You reference OWASP best practices where relevant and always prefer safe, defensive guidance over exploit details.\
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{Prompt: Context}
+\begin{frame}{SQL Injection: Prompt}
 \begin{tcolorbox}
-[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+[colback=blue!5!white,colframe=navy!75!black,title=Context]
 You will be given one or more source files that interact with a database. The goal: determine whether SQL Injection exists, explain why (with exact code locations), provide a secure, runnable fix in the same language/framework, and produce tests that verify the fix. Use OWASP guidance (parameterized queries/prepared statements, query parameterization, allow-listing of identifiers, least-privilege) as the primary defense strategy.
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{Prompt: Tasks (Part 1)}
-\begin{tcolorbox}[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+\begin{frame}{SQL Injection: Prompt}
+\begin{tcolorbox}[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
 \begin{enumerate}
   \item Analyze the code and identify any SQL Injection vulnerabilities. If none, explain why the code is safe.
   \item For each vulnerability found:
@@ -160,8 +159,8 @@ You will be given one or more source files that interact with a database. The go
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{Prompt: Tasks (Part 2)}
-\begin{tcolorbox}[colback=blue!5!white,colframe=navy!75!black,title=Tasks Continued]
+\begin{frame}{SQL Injection: Prompt}
+\begin{tcolorbox}[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 2)]
   \begin{enumerate}
     \setcounter{enumi}{2} % continue numbering
 
@@ -175,10 +174,7 @@ You will be given one or more source files that interact with a database. The go
 
 \begin{frame}{Result}
 \begin{itemize}
-\item Use parameterized queries (prepared statements) to separate code from data.
-\item Employ stored procedures and input validation.
-\item Apply the principle of least privilege on database accounts.
-\item Regular security testing and updates to codebase.
+RESAULT
 \end{itemize}
 \end{frame}
 
@@ -192,12 +188,31 @@ You will be given one or more source files that interact with a database. The go
 \end{frame}
 \begin{frame}{Types of XSS}
 \begin{itemize}
-    \item Stored (persistent server storage of malicious scripts)
-    \item Reflected (script comes from user request, reflected in server response)
-    \item DOM-based (client-side modification of the Document Object Model)
+    \item Stored-XSS: persistent server storage of malicious scripts
+    \item Reflected-XSS: script comes from user request, reflected in server response
+    \item DOM-based-XSS: client-side modification of the Document Object Model
 \end{itemize}
 \end{frame}
+\begin{frame}{XSS Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Persona]
 
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{XSS Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Context]
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{XSS Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+
+\end{tcolorbox}
+\end{frame}
 
 \section{References}
 \begin{frame}{References}
