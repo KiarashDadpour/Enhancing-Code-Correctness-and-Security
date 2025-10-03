@@ -140,25 +140,37 @@ You are a senior application security engineer and database expert with hands-on
 
 \begin{frame}{Prompt: Context}
 \begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
 You will be given one or more source files that interact with a database. The goal: determine whether SQL Injection exists, explain why (with exact code locations), provide a secure, runnable fix in the same language/framework, and produce tests that verify the fix. Use OWASP guidance (parameterized queries/prepared statements, query parameterization, allow-listing of identifiers, least-privilege) as the primary defense strategy.
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{Prompt: Tasks}
+\begin{frame}{Prompt: Tasks (Part 1)}
+\begin{tcolorbox}[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
 \begin{enumerate}
-\item Analyze the code and identify any SQL Injection vulnerabilities. If none, explain why the code is safe.
-\item For each vulnerability found:
-\begin{itemize}
-\item Provide exact file/line references and an evidence snippet (<= 8 lines).
-\item Explain the technical root cause (e.g., dynamic string concatenation, unsafe ORM usage).
-\item Assign severity (LOW/MEDIUM/HIGH) with justification.
-\item Deliver a secure, complete code fix in the same language (prefer parameterized queries / prepared statements).
-\item If identifiers are dynamic, show a secure allow-listing/mapping approach.
-\end{itemize}
-\item Produce unit/integration tests that assert the fix prevents SQL injection (use DB mocks or in-memory DBs).
-\item Provide remediation plan, monitoring suggestions, and follow-up security checks (SAST, DAST, DB privileges review).
-\item NEVER output exploit payloads or instructions to exploit the vulnerability.
+  \item Analyze the code and identify any SQL Injection vulnerabilities. If none, explain why the code is safe.
+  \item For each vulnerability found:
+  \begin{itemize}
+    \item Provide exact file/line references and an evidence snippet (<= 8 lines).
+    \item Explain the technical root cause (e.g., dynamic string concatenation, unsafe ORM usage).
+    \item Assign severity (LOW/MEDIUM/HIGH) with justification.
+  \end{itemize}
+  
 \end{enumerate}
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Prompt: Tasks (Part 2)}
+\begin{tcolorbox}[colback=blue!5!white,colframe=navy!75!black,title=Tasks Continued]
+  \begin{enumerate}
+    \setcounter{enumi}{2} % continue numbering
+
+    \item If identifiers are dynamic, show a secure allow-listing/mapping approach.
+    \item Produce unit/integration tests that assert the fix prevents SQL injection (use DB mocks or in-memory DBs).
+    \item Provide remediation plan, monitoring suggestions, and follow-up security checks (SAST, DAST, DB privileges review).
+    \item NEVER output exploit payloads or instructions to exploit the vulnerability.
+  \end{enumerate}
+\end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Result}
@@ -171,8 +183,21 @@ You will be given one or more source files that interact with a database. The go
 \end{frame}
 
 \begin{frame}{XSS}
-\textbf{Abstract}
+\begin{itemize}
+  \item Malicious scripts are permanently saved on the target server (e.g., in databases, comment sections, forums).
+    \item Executes every time a user loads the affected content, impacting many users simultaneously.
+    \item Represents the highest risk due to persistence and scale.
+
+\end{itemize}
 \end{frame}
+\begin{frame}{Types of XSS}
+\begin{itemize}
+    \item Stored (persistent server storage of malicious scripts)
+    \item Reflected (script comes from user request, reflected in server response)
+    \item DOM-based (client-side modification of the Document Object Model)
+\end{itemize}
+\end{frame}
+
 
 \section{References}
 \begin{frame}{References}
