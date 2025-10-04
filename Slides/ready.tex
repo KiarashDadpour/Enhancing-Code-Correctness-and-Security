@@ -66,8 +66,103 @@
 \item Continual research to improve robustness and ethical use of LLMs.
 \end{itemize}
 \end{frame}
+\section{Prompt Engineering Patterns}
+\begin{frame}{Patterns}
+\begin{itemize}
+\item Persona Pattern
+\item Audience Persona Pattern
+\item Few Shots \& Zero Shot Example
+\end{itemize}
+\end{frame} 
 
 \section{Attacks}
+\begin{frame}{Buffer Overflow: Abstract}
+\begin{itemize}
+    \item 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Buffer Overflow: Example (Part 1)}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\linewidth]{3.4.png}
+\end{figure}
+
+\end{frame}
+\begin{frame}{Buffer Overflow: Example (Part 2)}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\linewidth]{3.4.png}
+\end{figure}
+
+\end{frame}
+\begin{frame}{Buffer Overflow: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Persona]
+
+\end{tcolorbox}
+\end{frame}
+\begin{frame}{Buffer Overflow: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Context]
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Buffer Overflow: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Buffer Overflow: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 2)]
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Insecure Deserialization: Abstract}
+\begin{itemize}
+    \item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Insecure Deserialization: Example}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\linewidth]{3.4.png}
+\end{figure}
+\end{frame}
+\begin{frame}{Insecure Deserialization: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Persona]
+
+\end{tcolorbox}
+\end{frame}
+\begin{frame}{Insecure Deserialization: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Context]
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Insecure Deserialization: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
+
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Insecure Deserialization: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 2)]
+
+\end{tcolorbox}
+\end{frame}
+
 \begin{frame}{SQL Injection: Abstract}
 \begin{itemize}
     \item SQL Injection is one of the oldest and most dangerous software security vulnerabilities.
@@ -77,17 +172,8 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{SQL Injection: Example}
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1.1\linewidth]{3.4.png}
-\end{figure}
 
-\end{frame}
-
-
-
-\begin{frame}[fragile]{SQL Injection}
+\begin{frame}[fragile]{SQL Injection: Login}
 
 \begin{columns}[T] % T برای تراز بالای ستون‌ها
     \begin{column}{0.48\linewidth} % ستون سمت چپ
@@ -111,7 +197,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{SQL Injection}
+\begin{frame}[fragile]{SQL Injection: Login}
 
 \begin{columns}[T] % T برای تراز بالای ستون‌ها
     \begin{column}{0.48\linewidth} % ستون سمت چپ
@@ -131,6 +217,13 @@
         }
     \end{column}
 \end{columns}
+
+\end{frame}
+\begin{frame}{SQL Injection: Example}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\linewidth]{3.4.png}
+\end{figure}
 
 \end{frame}
 
