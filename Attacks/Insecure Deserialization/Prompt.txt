@@ -20,6 +20,7 @@ severity: LOW / MEDIUM / HIGH / CRITICAL. Include a brief justification for the 
 4- Produce a risk table for the set of findings. The matrix should include at minimum these
 axes/columns: likelihood × impact × exploitability. Use this matrix to help prioritize remediation. 
 5- Check how well the code aligns with OWASP guidance and secure‑coding standards. List deviations
-from those standards. 6- Based on the risk matrix, write a short action plan that specifies which
+from those standards. 
+6- Based on the risk matrix, write a short action plan that specifies which
 locations (files/line ranges/modules) should be remediated first. 
-7- Send me the corrected code for each part
+7- Send me the corrected code for each part.
