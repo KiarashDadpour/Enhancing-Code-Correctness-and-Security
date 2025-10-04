@@ -78,7 +78,10 @@
 \section{Attacks}
 \begin{frame}{Buffer Overflow: Abstract}
 \begin{itemize}
-    \item 
+    \item A buffer overflow occurs when data larger than the buffer’s capacity is written into memory, causing overwriting of adjacent memory areas.
+    \item This vulnerability can allow execution of malicious code and remains a serious threat even today.
+    \item Languages like C and C++ are most vulnerable, since they lack automatic bounds checking and rely on manual memory management.
+    \item Python significantly reduces the risk of buffer overflow through automatic memory management and strict bounds checking.
 \end{itemize}
 \end{frame}
 
@@ -126,7 +129,10 @@
 
 \begin{frame}{Insecure Deserialization: Abstract}
 \begin{itemize}
-    \item 
+    \item Insecure deserialization occurs when serialized data is deserialized back into objects without validating the source or content.
+    \item A tampered serialized payload can let an attacker change program behavior, escalate privileges, or trigger arbitrary code execution.
+    \item Automatic or direct object reconstruction from untrusted serialized input combined with lack of validation or integrity checks.
+    \item Languages/platforms that support direct object deserialization (Java, PHP, and Python) are more susceptible.
 \end{itemize}
 \end{frame}
 
@@ -237,7 +243,7 @@ You are a senior application security engineer and database expert with hands-on
 \begin{frame}{SQL Injection: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Context]
-You will be given one or more source files that interact with a database. The goal: determine whether SQL Injection exists, explain why (with exact code locations), provide a secure, runnable fix in the same language/framework, and produce tests that verify the fix. Use OWASP guidance (parameterized queries/prepared statements, query parameterization, allow-listing of identifiers, least-privilege) as the primary defense strategy.
+You will be given one or more source files that interact with a database. The goal: determine whether SQL Injection exists, explain why (with exact code locations), provide a secure, runnable fix in the same language/framework. Use OWASP guidance (parameterized queries/prepared statements, query parameterization, allow-listing of identifiers, least-privilege) as the primary defense strategy.
 \end{tcolorbox}
 \end{frame}
 
@@ -261,9 +267,8 @@ You will be given one or more source files that interact with a database. The go
   \begin{enumerate}
     \setcounter{enumi}{2} % continue numbering
 
-    \item If identifiers are dynamic, show a secure allow-listing/mapping approach.
     \item Produce unit/integration tests that assert the fix prevents SQL injection (use DB mocks or in-memory DBs).
-    \item Provide remediation plan, monitoring suggestions, and follow-up security checks (SAST, DAST, DB privileges review).
+
     \item NEVER output exploit payloads or instructions to exploit the vulnerability.
   \end{enumerate}
 \end{tcolorbox}
@@ -293,7 +298,10 @@ RESAULT
 \begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Persona]
-You are a senior application security engineer and database expert with hands-on experience finding, explaining, and remediating SQL Injection vulnerabilities across multiple languages and frameworks (PHP, Java, C#, Python, Node.js, Go, Ruby, etc.). Your tone is technical, precise and pragmatic; you reference OWASP best practices where relevant.
+You are a senior application security engineer and expert prompt-engineer with deep, hands-on experience finding, explaining,
+triaging, and remediating Cross-Site Scripting (XSS) vulnerabilities across web stacks (server-side templating:
+PHP/Twig, Python/Jinja2, Java/JSP, Ruby/ERB; client frameworks: React/Angular/Vue/vanilla JS). Your tone is technical, precise,
+and pragmatic. Always reference OWASP XSS prevention guidance where relevant, and prefer output-encoding and framework-native escapes over unsafe sanitizers.
 
 
 \end{tcolorbox}
@@ -302,18 +310,25 @@ You are a senior application security engineer and database expert with hands-on
 \begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Context]
-You will be given source code (one or more files) that interacts with a database. Your goal is to determine whether SQL Injection exists, explain *why* (with exact code locations), provide a secure, runnable fix in the *same language/framework*, and produce tests that verify the fix. Use OWASP guidance (prepared statements/parameterized queries, query parameterization, allow-listing of identifiers, least privilege) as the primary defense strategy.
+You will be given one or more source files (or a repository snapshot) and optionally runtime configuration \
+(framework, templating engine, CSP, cookie flags). The code may include server‑rendered templates,
+API endpoints that return HTML/JSON, frontend JS that manipulates DOM with user input, and third‑party widget integrations.
+The environment may include client inputs from query params, request bodies, headers, cookies, WebSocket messages, 
+or stored content (database/files). Assume you have read‑only access to the code and can run tests in an isolated environment if requested.
+
+
 \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
-[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
 \begin{itemize}
-    \item Identify confirmed or likely SQLi vulnerabilities with exact file and line ranges.
-    \item Include evidence snippets limited to 8 lines for each finding.
-    \item Explain the technical root cause for each vulnerability — how input flows to the SQL sink.
-    \item Assign severity levels (LOW, MEDIUM, HIGH) with a concise justification for each.
+    \item  Code & runtime config available: you have read‑only access to server + frontend source
+    files and runtime config (templating engine, CSP, cookie flags); analyze based on these artifacts.
+    \item Untrusted input sources to consider: query params, request bodies, headers, cookies, postMessage,
+   WebSocket messages, and stored content (DB/files).
+   
 \end{itemize}
 \end{frame}
 \end{tcolorbox}
@@ -321,28 +336,28 @@ You will be given source code (one or more files) that interacts with a database
 
 \begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
-[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 2)]
 \begin{itemize}
-    \item Provide complete, runnable code fixes using prepared statements or parameterized queries.
-    \item Include allow-listing or mapping for dynamic identifiers where applicable.
-    \item Note any required build/configuration changes and DB privileges considerations.
-    \item Add unit and integration tests that prove malicious inputs are safely handled using mocks or in-memory DBs.
-    \item Summarize a remediation plan with monitoring advice, and state any assumptions or limitations clearly.
+    \item Output contexts & sinks to prioritize: HTML body text, HTML attributes,
+   JS string/identifier, URL context, CSS, HTML comments, and event handlers;
+   flag dangerous sinks (innerHTML, document.write, eval, dangerouslySetInnerHTML, jQuery.html, direct DOM insertion).
+   \item Verify framework protections: frameworks may auto‑escape—do not assume safety. 
+   Check template settings and escape modes; if not provable, treat as untrusted.
+    
+
 \end{itemize}
 \end{tcolorbox}
 \end{frame} 
 
 \begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
-[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
-Return a single JSON object with: \newline
-summary
-findings[] → {id, name, language, location, evidence, reason, severity, fix{description, code}, tests[]}
-recommendations[]
-references[]
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 3)]
+\begin{itemize}
+\item Safe verification requirement: produce safe, non‑exploitative verification tests 
+   (in‑memory DBs/mocks, headless assertions) and full remediation patches in the same language. Never output exploit payloads.
+\end{itemize}
 \end{tcolorbox}
 \end{frame} 
-
 
 \section{References}
 \begin{frame}{References}
