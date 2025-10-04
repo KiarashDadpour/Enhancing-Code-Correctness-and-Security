@@ -68,12 +68,16 @@
 \end{frame}
 
 \section{Attacks}
-\begin{frame}{SQL Injection}
-\textbf{Abstract}
-
+\begin{frame}{SQL Injection: Abstract}
+\begin{itemize}
+    \item SQL Injection is one of the oldest and most dangerous software security vulnerabilities.
+    \item It occurs when attackers inject malicious SQL code into user input fields.
+    \item The attack exploits insecure dynamic SQL query construction without proper input validation or parameterization.
+    \item A successful SQL Injection can lead to unauthorized access, modification, or deletion of data.
+\end{itemize}
 \end{frame}
 
-\begin{frame}{SQL Injection}
+\begin{frame}{SQL Injection: Example}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=1.1\linewidth]{3.4.png}
@@ -178,7 +182,7 @@ RESAULT
 \end{itemize}
 \end{frame}
 
-\begin{frame}{XSS}
+\begin{frame}{XSS: Abstract}
 \begin{itemize}
   \item Malicious scripts are permanently saved on the target server (e.g., in databases, comment sections, forums).
     \item Executes every time a user loads the affected content, impacting many users simultaneously.
@@ -193,26 +197,59 @@ RESAULT
     \item DOM-based-XSS: client-side modification of the Document Object Model
 \end{itemize}
 \end{frame}
-\begin{frame}{XSS Prompt}
+\begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Persona]
+You are a senior application security engineer and database expert with hands-on experience finding, explaining, and remediating SQL Injection vulnerabilities across multiple languages and frameworks (PHP, Java, C#, Python, Node.js, Go, Ruby, etc.). Your tone is technical, precise and pragmatic; you reference OWASP best practices where relevant.
+
 
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{XSS Prompt}
+\begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Context]
-
+You will be given source code (one or more files) that interacts with a database. Your goal is to determine whether SQL Injection exists, explain *why* (with exact code locations), provide a secure, runnable fix in the *same language/framework*, and produce tests that verify the fix. Use OWASP guidance (prepared statements/parameterized queries, query parameterization, allow-listing of identifiers, least privilege) as the primary defense strategy.
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{XSS Prompt}
+\begin{frame}{XSS: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks]
-
+\begin{itemize}
+    \item Identify confirmed or likely SQLi vulnerabilities with exact file and line ranges.
+    \item Include evidence snippets limited to 8 lines for each finding.
+    \item Explain the technical root cause for each vulnerability — how input flows to the SQL sink.
+    \item Assign severity levels (LOW, MEDIUM, HIGH) with a concise justification for each.
+\end{itemize}
+\end{frame}
 \end{tcolorbox}
 \end{frame}
+
+\begin{frame}{XSS: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+\begin{itemize}
+    \item Provide complete, runnable code fixes using prepared statements or parameterized queries.
+    \item Include allow-listing or mapping for dynamic identifiers where applicable.
+    \item Note any required build/configuration changes and DB privileges considerations.
+    \item Add unit and integration tests that prove malicious inputs are safely handled using mocks or in-memory DBs.
+    \item Summarize a remediation plan with monitoring advice, and state any assumptions or limitations clearly.
+\end{itemize}
+\end{tcolorbox}
+\end{frame} 
+
+\begin{frame}{XSS: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks]
+Return a single JSON object with: \newline
+summary
+findings[] → {id, name, language, location, evidence, reason, severity, fix{description, code}, tests[]}
+recommendations[]
+references[]
+\end{tcolorbox}
+\end{frame} 
+
 
 \section{References}
 \begin{frame}{References}
