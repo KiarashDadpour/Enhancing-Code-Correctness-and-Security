@@ -1,7 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\beamer@sectionintoc {1}{Homotopy category of $N$-complexes}{2}{0}{1}
-\beamer@sectionintoc {2}{Derived category of $N$-complexes}{33}{0}{2}
-\beamer@sectionintoc {3}{Cotorsion Pairs}{42}{0}{3}
-\beamer@sectionintoc {4}{Cotorsion pair in $\mathbb {C} _N(\mathcal {A} )$}{45}{0}{4}
-\beamer@sectionintoc {5}{Applications}{63}{0}{5}
-\beamer@sectionintoc {6}{References}{76}{0}{6}
