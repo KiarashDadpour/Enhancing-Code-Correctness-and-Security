@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Comment Section - Vulnerable to XSS</title>
+<style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background: white;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px;
+        color: #333;
+    }
+    .container {
+        background-color: #fff;
+        width: 100%;
+        max-width: 700px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        padding: 40px 30px;
+    }
+    h1 {
+        font-weight: 900;
+        font-size: 2.8rem;
+        color: #5a2d82;
+        margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: 1.2px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    textarea {
+        min-height: 120px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+        font-family: inherit;
+        resize: vertical;
+        transition: border-color 0.3s ease;
+    }
+    textarea:focus {
+        border-color: #5a2d82;
+        outline: none;
+        box-shadow: 0 0 8px #9b59b6aa;
+    }
+    button {
+        margin-top: 20px;
+        background-color: #5a2d82;
+        color: #fff;
+        border: none;
+        padding: 18px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.25s ease;
+    }
+    button:hover, button:focus {
+        background-color: #7d4cbb;
+    }
+    .message {
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.15rem;
+        color: #27ae60;
+        letter-spacing: 0.5px;
+    }
+    h2 {
+        font-weight: 700;
+        font-size: 1.9rem;
+        margin-bottom: 20px;
+        color: #382f54;
+        border-bottom: 2px solid #9b59b6;
+        padding-bottom: 10px;
+        letter-spacing: 0.6px;
+    }
+    ul.comments-list {
+        list-style: none;
+        max-height: 450px;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+    ul.comments-list li {
+        background-color: #f5f1fb;
+        color: #382f54;
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        border-radius: 12px;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        box-shadow: 0 2px 8px rgba(122, 93, 152, 0.2);
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        transition: background-color 0.3s ease;
+    }
+    ul.comments-list li:hover {
+        background-color: #eae3f8;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+        .container {
+            padding: 25px 20px;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        button {
+            font-size: 1rem;
+            padding: 15px;
+        }
+        textarea {
+            font-size: 1rem;
+            min-height: 90px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Post a Comment</h1>
+        <form method="POST" action="/">
+            <textarea name="comment" placeholder="Enter your comment here..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        {% if message %}
+        <div class="message">{{ message }}</div>
+        {% endif %}
+        <h2>Comments</h2>
+        <ul class="comments-list">
+            {% for c in comments %}
+            <li>{{ c|safe }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
