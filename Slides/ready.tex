@@ -89,41 +89,71 @@
 \begin{frame}{Buffer Overflow: Example (Part 1)}
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1.1\linewidth]{3.4.png}
+	\includegraphics[width=0.8\linewidth]{5.1.png}
 \end{figure}
-
 \end{frame}
 \begin{frame}{Buffer Overflow: Example (Part 2)}
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1.1\linewidth]{3.4.png}
+	
+ \includegraphics[width=0.9\linewidth]{5.3.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Buffer Overflow: Example (Part 3)}
+\begin{figure}[htb]
+	\centering
+	
+ \includegraphics[width=0.8\linewidth]{5.2.png}
+\end{figure}
+\end{frame}
+
+\end{frame}
+\begin{frame}{Buffer Overflow: Example (Part 4)}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.9\linewidth]{5.4.png}
 \end{figure}
 
 \end{frame}
 \begin{frame}{Buffer Overflow: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Persona]
-
+You are a senior application security engineer and memory-safety specialist with experience in identifying,
+assessing, and mitigating buffer overflow bugs and memory-corruption vulnerabilities in native code 
+(C/C++/Objective‑C and native extensions).Be technical, precise, and pragmatic.
+When needed, reference OWASP secure coding and testing guidelines.
 \end{tcolorbox}
 \end{frame}
 \begin{frame}{Buffer Overflow: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Context]
-
+You receive code that may contain potentially dangerous inputs (e.g., network input, files, or command-line arguments).
+Even if modern OS protections like ASLR and NX are enabled, the code must be secured.
+You can use sanitizers to help detect issues.
 \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Buffer Overflow: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
-
+\begin{itemize}
+    \item  Perform a statistical review of files and note the exact location (file + line range) of suspicious inputs (max 8 lines as evidence).
+    \item Classify each issue (stack / heap / off‑by‑one / format / integer overflow).
+    \item Determine severity (LOW / MEDIUM / HIGH / CRITICAL) with explanation.
+\end{itemize}
 \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Buffer Overflow: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 2)]
+\begin{itemize}
 
+\item Add a risk table or matrix: likelihood  impact exploitability.
+\item Check the code’s compliance with OWASP guidelines and secure coding standards.
+\item Prioritize tasks: review the most dangerous inputs and buffers first.
+\end{itemize}
 \end{tcolorbox}
 \end{frame}
 
@@ -139,18 +169,24 @@
 \begin{frame}{Insecure Deserialization: Example}
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1.1\linewidth]{3.4.png}
+	\includegraphics[width=0.9\linewidth]{6.1.png}
 \end{figure}
 \end{frame}
 \begin{frame}{Insecure Deserialization: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Persona]
-
+You are a senior application security engineer specializing in insecure deserialization in
+Java, Python, PHP, .NET, and custom binary formats. Be technical, precise, and pragmatic.
+When references are needed, cite OWASP guidance. Never produce exploit code or step‑by‑step exploitation
+instructions. 
 \end{tcolorbox}
 \end{frame}
 \begin{frame}{Insecure Deserialization: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Context]
+You are reviewing source files, configuration, and build scripts for an application that 
+deserializes external data (inputs may come from the network, files, cookies, queues, RPC, or plugins).
+You may run safe unit tests and static analysis tools in an isolated environment.
 
 \end{tcolorbox}
 \end{frame}
@@ -158,14 +194,37 @@
 \begin{frame}{Insecure Deserialization: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
-
+\begin{itemize}
+    \item  Find all locations where serialized data is deserialized (for example: unserialize, pickle.loads,
+ObjectInputStream.readObject, BinaryFormatter.Deserialize, and framework bindings). Report the
+file and line range for each finding (format: file: start_line–end_line). Provide up to 8 lines of 
+evidence per finding. 
+\item Label each finding as one of: - insecure deserialization - gadget risk - unsafe class resolution 
+\end{itemize}
 \end{tcolorbox}
 \end{frame}
-
 \begin{frame}{Insecure Deserialization: Prompt}
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 2)]
+\begin{itemize}
+    \item Write a short description of the problem for each finding. Assign a 
+severity: LOW / MEDIUM / HIGH / CRITICAL. Include a brief justification for the chosen severity.
+\item Produce a risk table for the set of findings. The matrix should include at minimum these
+axes/columns: likelihood × impact × exploitability. Use this matrix to help prioritize remediation. 
 
+\end{itemize}
+\end{tcolorbox}
+\end{frame}
+\begin{frame}{Insecure Deserialization: Prompt}
+\begin{tcolorbox}
+[colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 3)]
+\begin{itemize}
+    \item Check how well the code aligns with OWASP guidance and secure‑coding standards. List deviations
+from those standards.
+\item Based on the risk matrix, write a short action plan that specifies which
+locations (files/line ranges/modules) should be remediated first. 
+\item Send me the corrected code for each part
+\end{itemize}
 \end{tcolorbox}
 \end{frame}
 
@@ -274,11 +333,6 @@ You will be given one or more source files that interact with a database. The go
 \end{tcolorbox}
 \end{frame}
 
-\begin{frame}{Result}
-\begin{itemize}
-RESAULT
-\end{itemize}
-\end{frame}
 
 \begin{frame}{XSS: Abstract}
 \begin{itemize}
