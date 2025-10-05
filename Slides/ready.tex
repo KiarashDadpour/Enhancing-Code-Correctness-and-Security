@@ -336,17 +336,18 @@ You will be given one or more source files that interact with a database. The go
 
 \begin{frame}{XSS: Abstract}
 \begin{itemize}
-  \item Malicious scripts are permanently saved on the target server (e.g., in databases, comment sections, forums).
-    \item Executes every time a user loads the affected content, impacting many users simultaneously.
-    \item Represents the highest risk due to persistence and scale.
+  \item  Attackers exploit vulnerabilities to inject harmful scripts (commonly JavaScript) into web pages viewed by other users, leading to unauthorized script execution in victim's browsers.
+    \item Through executing injected scripts, attackers can steal session tokens or cookies, impersonate legitimate users, and gain unauthorized access to sensitive accounts.
+    \item XSS enables attackers to access, steal, or alter sensitive user data directly within the victim's session, compromising confidentiality and integrity.
+
 
 \end{itemize}
 \end{frame}
 \begin{frame}{Types of XSS}
 \begin{itemize}
-    \item Stored-XSS: persistent server storage of malicious scripts
-    \item Reflected-XSS: script comes from user request, reflected in server response
-    \item DOM-based-XSS: client-side modification of the Document Object Model
+    \item Stored-XSS: The attacker injects malicious scripts that are permanently stored on the server.
+    \item Reflected-XSS: script comes from user request, reflected in server response.
+    \item DOM-based-XSS: The attack leverages client-side JavaScript, where user input is processed insecurely within the browser's Document Object Model (DOM).
 \end{itemize}
 \end{frame}
 \begin{frame}{XSS: Prompt}
@@ -378,9 +379,9 @@ or stored content (database/files). Assume you have read‑only access to the co
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 1)]
 \begin{itemize}
-    \item  Code & runtime config available: you have read‑only access to server + frontend source
+    \item  You have read‑only access to server + frontend source
     files and runtime config (templating engine, CSP, cookie flags); analyze based on these artifacts.
-    \item Untrusted input sources to consider: query params, request bodies, headers, cookies, postMessage,
+    \item Query params, request bodies, headers, cookies, postMessage,
    WebSocket messages, and stored content (DB/files).
    
 \end{itemize}
@@ -407,8 +408,7 @@ or stored content (database/files). Assume you have read‑only access to the co
 \begin{tcolorbox}
 [colback=blue!5!white,colframe=navy!75!black,title=Tasks (Part 3)]
 \begin{itemize}
-\item Safe verification requirement: produce safe, non‑exploitative verification tests 
-   (in‑memory DBs/mocks, headless assertions) and full remediation patches in the same language. Never output exploit payloads.
+\item Never output exploit payloads.
 \end{itemize}
 \end{tcolorbox}
 \end{frame} 
@@ -417,19 +417,32 @@ or stored content (database/files). Assume you have read‑only access to the co
 \begin{frame}{References}
 \tiny
 \begin{itemize}
-\item O. Iyama, K. Kato, J. Miyachi, \textit{Derived categories of $N$-complexes}, 2017.
-\item A. Neeman, \textit{The homotopy category of flat modules and Grothendieck duality}, 2008.
-\item OWASP Foundation, \textit{SQL Injection Prevention Cheat Sheet}.
-\item Vaswani et al., \textit{Attention is All You Need}, 2017.
-\item Radford et al., \textit{Language Models are Few-Shot Learners}, OpenAI, 2020.
+\item OWASP XSS Prevention Cheat Sheet
+\item OWASP Cheat Sheet Series – DOM based XSS Prevention
+\item OWASP Secure Coding Practices Quick Reference Guide
+
+\item Google Web Fundamentals – Cross-Site Scripting Defense Guide
+
+\item “A Survey on AI-Driven Secure Software Engineering”, ACM Computing Surveys, 2024.
+
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Github Repository}
+    \begin{figure}[htb]
+	\centering
+	\includegraphics[width=100]{Github QRcode.png}
+    \caption{QR Code For Workshop Github Repository}
+
+     
+\end{figure}
+\end{frame}
 \begin{frame}
 \vspace{3cm}
 \begin{center}
 \begin{LARGE}
 \textcolor{blue}{\textbf{Thank you all for your attention}}
+
 \end{LARGE}
 \end{center}
 \end{frame}
