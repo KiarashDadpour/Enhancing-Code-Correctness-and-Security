@@ -35,8 +35,8 @@ class TerminalSystem {
     
     private function showLogin() {
         echo "╔═══════════════════════════════════════╗\n";
-        echo "║         DATABASE CONTROL PANEL       ║\n";
-        echo "║        Authentication Required       ║\n";
+        echo "║         DATABASE CONTROL PANEL        ║\n";
+        echo "║        Authentication Required        ║\n";
         echo "╚═══════════════════════════════════════╝\n\n";
     }
     
