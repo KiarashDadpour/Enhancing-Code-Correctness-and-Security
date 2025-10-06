@@ -8,6 +8,17 @@ In this hands-on workshop, participants will first learn the theoretical foundat
 
 By the end of the workshop, participants are expected to be able to apply AI-based tools to improve code correctness and security, and to gain a clearer understanding of the opportunities and risks of this technology in software security and cryptography.
 
+## Workshop goals: 
+- Overview of software security concepts and types of code analysis (static/dynamic).
+- Introduction to common SAST frameworks and tools for various programming languages.
+- Limitations and challenges of traditional static analysis tools.
+- Brief introduction to large language models and approaches to adapting/tuning them for code analysis tasks.
+- The role of large language models in complementing static analysis workflows.
+- Core capabilities of LLMs for vulnerability identification and remediation.
+- Prompt-engineering techniques for code review and analysis (including zero-shot and few-shot prompting).
+- Practical vulnerability examples and detection: SQL Injection, XSS, Buffer Overflow.
+- Comparison of approaches: Zero-shot/Few-shot prompting vs. Fine-tuning.
+- Evaluation methods and metrics to compare LLMs with traditional SAST tools.
 ## Lecturers
 ### [Dr. Reza Ebrahimi Atani](https://www.linkedin.com/in/rezaebrahimiatani/)
 ### Dr. Amir Tabatabaei
