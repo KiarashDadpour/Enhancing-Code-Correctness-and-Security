@@ -7,43 +7,18 @@ class DatabaseConfig {
     private $db_name = 'terminal_db';
     
     public function connect() {
-        // First connect without database
-        $conn = new mysqli($this->host, $this->user, $this->pass, '', $this->port);
-        
-        if ($conn->connect_error) {
-            die("Database connection failed: " . $conn->connect_error);
-        }
-        
-        // Initialize database
-        $this->initializeDatabase($conn);
-        
-        // Reconnect with database selected
-        $conn->close();
+        // Connect directly to the database (assumes it's already created)
         $conn = new mysqli($this->host, $this->user, $this->pass, $this->db_name, $this->port);
         
+        if ($conn->connect_error) {
+            die("Database connection failed: " . $conn->connect_error . "\n" .
+                "Please make sure:\n" .
+                "1. MySQL is running on port 3307\n" .
+                "2. Database 'terminal_db' exists\n" .
+                "3. You have run database.sql script\n");
+        }
+        
         return $conn;
-    }
-    
-    private function initializeDatabase($conn) {
-        // Create database
-        $conn->query("CREATE DATABASE IF NOT EXISTS {$this->db_name}");
-        $conn->select_db($this->db_name);
-        
-        // Create users table
-        $conn->query("CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(50) UNIQUE,
-            password VARCHAR(100),
-            role VARCHAR(20),
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )");
-        
-        // Insert default users
-        $conn->query("INSERT IGNORE INTO users (username, password, role) VALUES 
-            ('admin', 'admin123', 'administrator'),
-            ('root', 'toor', 'admin'),
-            ('user', 'pass123', 'user'),
-            ('test', 'test', 'user')");
     }
 }
 ?>
