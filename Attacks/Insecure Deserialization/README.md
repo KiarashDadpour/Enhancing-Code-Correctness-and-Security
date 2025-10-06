@@ -5,7 +5,7 @@ This repository contains a small enterprise-style serializer/deserializer implem
 Enhancing-Code-Correctness-and-Security/attacks/XSS
 
 ├── Prompt.txt <br>
-├── system.py  <br>پ
+├── system.py  <br>
 └── README.md        
 
 ## Quick start (safe, local)
