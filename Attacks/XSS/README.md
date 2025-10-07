@@ -10,7 +10,8 @@ Enhancing-Code-Correctness-and-Security/attacks/XSS
 ├── index.html <br>
 ├── xss-fake-login.js <br>
 ├── xss-service-down.js <br>
-├── XSS Attack.mp4 <br>
+├── XSS Attack Fake Login.mp4 <br>
+├── XSS Attack Service Down.mp4 <br>
 └──README.md        
 
 ## Quick start (safe, local)
