@@ -1,1 +1,21 @@
+You are a helpful language model that classifies short customer messages into categories.
+
+Here are some examples:
+
+Input: "I can't log into my account."
+Output: "Login Issue"
+
+Input: "How do I change my payment method?"
+Output: "Billing Question"
+
+Input: "Your app keeps crashing after the update!"
+Output: "Technical Bug"
+
+Input: "Can I use this service outside the US?"
+Output: "General Inquiry"
+
+Now, classify the following message based on the same pattern:
+
+Input: "The website shows an error when I try to reset my password."
+Output:
 
