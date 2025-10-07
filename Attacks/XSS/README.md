@@ -8,7 +8,8 @@ Enhancing-Code-Correctness-and-Security/attacks/XSS
 ├── app.py  <br>
 ├── attacker_server.py  <br>
 ├── index.html <br>
-├── comment.js <br>
+├── xss-fake-login.js <br>
+├── xss-service-down.js <br>
 ├── XSS Attack.mp4 <br>
 └──README.md        
 
